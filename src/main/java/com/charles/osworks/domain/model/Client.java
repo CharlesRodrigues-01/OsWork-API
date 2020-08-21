@@ -1,21 +1,33 @@
 package com.charles.osworks.domain.model;
 
-public class Client {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Client implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome;
+	private String name;
 	private String email;
-	private String telefone;
-	
+	private String phone;
+
 	public Client() {
 	}
 
-	public Client(Long id, String nome, String email, String telefone) {
+	public Client(Long id, String name, String email, String phone) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 		this.email = email;
-		this.telefone = telefone;
+		this.phone = phone;
 	}
 
 	public Long getId() {
@@ -26,12 +38,12 @@ public class Client {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -42,12 +54,12 @@ public class Client {
 		this.email = email;
 	}
 
-	public String getTelefone() {
-		return telefone;
+	public String getPhone() {
+		return phone;
 	}
 
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	@Override
@@ -74,7 +86,5 @@ public class Client {
 			return false;
 		return true;
 	}
-	
-	
 
 }
